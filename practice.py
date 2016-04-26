@@ -108,27 +108,58 @@ print('hi')
 # At each stage, reduce the range of values you need to search by half
 
 # Example of square root problem
-x = 25
-epsilon = 0.01
-numGuesses = 0
-low = 0.0
-high = x
-# Initial answer is the mid point
-ans = (high + low) / 2.0
-# This is asking 'Am I close enough?'
-while abs(ans**2-x) >= epsilon:
-  print('low = ' + str(low) + ' high ' + str(high) + 'ans = ' + str(ans))
-  numGuesses += 1
-  # If guess was too low, you make that low number into the answer
-  if ans**2 < x:
-    low = ans
-  else:
-    high = ans
-  ans = (high + low)/2.0
-print('numGuesses = ' + str(numGuesses))
-print(str(ans) + ' is close to the square root of ' + str(x))
+# x = 25
+# epsilon = 0.01
+# numGuesses = 0
+# low = 0.0
+# high = x
+# # Initial answer is the mid point
+# ans = (high + low) / 2.0
+# # This is asking 'Am I close enough?'
+# while abs(ans**2-x) >= epsilon:
+#   print('low = ' + str(low) + ' high ' + str(high) + 'ans = ' + str(ans))
+#   numGuesses += 1
+#   # If guess was too low, you make that low number into the answer
+#   if ans**2 < x:
+#     low = ans
+#   else:
+#     high = ans
+#   ans = (high + low)/2.0
+# print('numGuesses = ' + str(numGuesses))
+# print(str(ans) + ' is close to the square root of ' + str(x))
 
 # This takes significantly fewer steps than the approximation method 
+
+
+# Newton-Raphson algorithm ( For square root  of k --> g - (g**2 - k) / 2g) ) 
+
+# epsilon = 0.01
+# y = 800.0
+# guess = y/2.0
+
+# while abs(guess*guess - y) >= epsilon:
+#   guess = guess - (((guess**2) - y) / (2 * guess))
+#   print(guess)
+# print('Square root of ' + str(y) + ' is about ' + str(guess))
+
+
+# Turing Complete Language = numbers, strings, assignments, input/output, comparisons, looping constructs
+# We can compute anything with a Turing complete language, but it lacks abstraction
+# Functions give us abstraction
+
+# A simple function to return the max of x or y
+
+def max(x, y):
+  if x > y:
+    print(x)
+  else:
+    print(y)
+
+# We then have to call the function
+# We can bind the result to a variable
+
+z = max(3, 4)
+
 
 
 
