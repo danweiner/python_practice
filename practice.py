@@ -264,28 +264,117 @@ print('hi')
 
 
 # Fixing function for decimal number
-def findRoot3(x,power,epsilon):
-  if x < 0 and power%2 == 0:
-    return None
-  # can't find even powered root of negative number
-  low = min(-1,x)
-  high = max(1,x)
-  ans = (high + low) / 2.0
-  while abs(ans**power - x) > epsilon:
-    if ans**power < x:
-      low = ans
-    else:
-      high = ans
-    ans = (high + low) / 2.0
-  return ans 
+# def findRoot3(x,power,epsilon):
+#   '''x and epsilon int or float, power an int
+#   epsilon > 0 power >= 1
+#   returns a float y st y**power is within epsilon of x
+#   if such a float does not exist, it returns None
+#   '''
+#   if x < 0 and power%2 == 0:
+#     return None
+#   # can't find even powered root of negative number
+#   low = min(-1,x)
+#   high = max(1,x)
+#   ans = (high + low) / 2.0
+#   while abs(ans**power - x) > epsilon:
+#     if ans**power < x:
+#       low = ans
+#     else:
+#       high = ans
+#     ans = (high + low) / 2.0
+#   return ans 
 
-print(findRoot3(25, 2, .001)) 
-print(findRoot3(27, 3, .001))
-print(findRoot3(-27, 3, .001))
-# But this fails
-print(findRoot3(0.25, 2, .001))
+# print(findRoot3(25, 2, .001)) 
+# print(findRoot3(27, 3, .001))
+# print(findRoot3(-27, 3, .001))
+# # But this fails
+# print(findRoot3(0.25, 2, .001))
 
 
+# Iterative Algorithms
+
+# Looping constructs are generally iterative algorithms
+##capture computation in a set of state variables
+
+# Simple example
+
+# def iterMul(a,b):
+#   result = 0
+#   while b > 0:
+#     result += a
+#     b -= 1
+#   return result
+
+# print(iterMul(5, 3))
 
 
+# Recursive Algorithms
+
+# reduce a problem to simpler or smaller versions of same problem
+# keep reducing to simpler case that can be solved directly (base case)
+
+# def recurMul(a,b):
+#   # Base case
+#   if b == 1:
+#     return a
+#   else:
+#     # Recursive step
+#     return a + recurMul(a, b-1)
+
+# print(recurMul(5, 3))
+
+
+# Factorial = The classic recursive problem
+
+# Iterative Factorial
+
+# def factI(n):
+#   '''assumes that n is an int > 0
+#   returns n!
+#   '''
+#   res = 1
+#   while n > 1:
+#     res = res * n
+#     n -= 1
+#   return res
+
+# def factR(n):
+#   '''assumes that n is an int > 0
+#   returns n!
+#   '''
+#   if n == 1:
+#     return n
+#   return n*factR(n - 1)
+
+# print(factI(3))
+# print(factI(5))
+# print(factR(3))
+# print(factR(5))
+
+
+# Towers of Hanoi - example of Recursive problem solving
+
+# def printMove(fr, to):
+#   print('move from ' + str(fr) + ' to ' + str(to))
+
+# def Towers(n, fr, to, spare):
+#   # base case
+#   if n == 1:
+#     printMove(fr, to)
+#   else:
+#     Towers(n - 1, fr, spare, to)
+#     Towers(1, fr, to, spare)
+#     Towers(n - 1, spare, to, fr)
+
+
+# Towers(1, 'f', 't', 's')
+# # This is base case - just says move from f to t
+
+# Towers(2, 'f', 't', 's')
+# # This says
+# ## Move from f to s (spare)
+# ## Move from f to t
+# ## Move from s to t
+
+# Towers(5, 'f', 't', 's')
 
