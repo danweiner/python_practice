@@ -378,3 +378,68 @@ print('hi')
 
 # Towers(5, 'f', 't', 's')
 
+
+
+# Fibonacci
+
+# def fib(x):
+#   '''assumes x an in >= 0
+#   returns Fibonacci of x'''
+#   # This returns a boolean
+#   assert type(x) == int and x >= 0
+#   if x == 0 or x == 1:
+#     return 1
+#   else:
+#     return fib(x - 1) + fib(x - 2)
+
+# print(fib(6))
+
+
+# Using recursion on strings - palindromes
+
+# This is a Divide and Conquer Algorithm
+## Solve a hard problem by breaking it into a set of sub problems
+## Sub problems are easier to solve than the original
+## Solutions of the sub problems can be combined to solve the original
+
+# convert the string to just characters
+# strip out punctuation
+# convert to lowercase
+
+# base case = string of length 0 or 1 is a palindrome
+
+# recursive case = if first character matches last character
+## string is a palindrome if middle section is a palindrome
+
+def isPalindrome(s):
+  
+  # Internal Procedures
+  def toChars(s):
+    # convert to lowercase
+    s = s.lower()
+    ans = ''
+    # only keep lower case characters and add to ans
+    for c in s:
+      if c in 'abcdefghijklmnopqrstuvwxyz':
+        ans = ans + c
+    return ans
+
+  def isPal(s):
+    if len(s) <= 1:
+      # base case
+      return True
+    else:
+      # Recursive call
+      # Check to see if first and last characters are same
+      # Pull out substring from 1 to second to last character
+      return s[0] == s[-1] and isPal(s[1:-1])
+
+  return isPal(toChars(s))
+
+
+print(isPalindrome('abba'))
+# True
+print(isPalindrome('cdfs'))
+# False
+print(isPalindrome('level'))
+# True
