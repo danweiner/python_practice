@@ -19,6 +19,10 @@ This is a Guess and Check algorithm
 Approximation - finding an answer that's good enough
 - Find a y s.t. y*y = x + - Epsilon
 
+Bisection search
+- Cut search space in half each iteration
+
+
 
 Example code
 
@@ -75,6 +79,7 @@ Example code
 #   print("Failed on square root of " + str(x))
 # else:
 #   print(str(ans) + ' is close to the square root of ' + str(x))
+
 
 # Bisection search
 
