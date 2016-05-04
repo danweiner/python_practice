@@ -328,6 +328,73 @@
 ##
 ##print(animals_on_farm(7,12))
 
+## Answers from MIT OCW
 
+# Solve using Enumerate and Check - Brute Force
 
+##def solve(legs, heads):
+##    for chickens in range(0, heads + 1):
+##        dogs = heads - chickens
+##        totLegs = 4*dogs + 2*chickens
+##        if totLegs == legs:
+##            return [dogs, chickens]
+##    return [None, None]
+##
+##def animals_on_farm():
+##    heads = int(input('Enter number of heads: '))
+##    legs = int(input('Enter number of legs: '))
+##    # This is modularity - suppressing details of 'solve'
+##    dogs, chickens = solve(legs, heads)
+##    if dogs == None:
+##        print('There is no solution')
+##    else:
+##        print('Number of dogs: ', dogs)
+##        print('Number of chickens: ', chickens)
+##
+### What if it's an underconstraint problem - What if there are spiders on the farm
+##
+##def solve1(legs, heads):
+##    for spiders in range(0, heads + 1):
+##        for chickens in range(0, heads - spiders + 1):
+##            dogs = heads - chickens - spiders
+##            totLegs = 4*dogs + 2*chickens + 8*spiders
+##            if totLegs == legs:
+##                return [dogs, chickens, spiders]
+##    return [None, None, None]
+##
+##def animals_on_farm1():
+##    heads = int(input('Enter number of heads: '))
+##    legs = int(input('Enter number of legs: '))
+##    # This is modularity - suppressing details of 'solve'
+##    dogs, chickens, spiders = solve1(legs, heads)
+##    if dogs == None:
+##        print('There is no solution')
+##    else:
+##        print('Number of dogs: ', dogs)
+##        print('Number of chickens: ', chickens)
+##        print('Number of spiders: ', spiders)
+##        
+### Print out all solutions - Generalize the loop
+##
+##def solve2(legs, heads):
+##    solutionFound = False
+##    for spiders in range(0, heads + 1):
+##        for chickens in range(0, heads - spiders + 1):
+##            dogs = heads - chickens - spiders
+##            totLegs = 4*dogs + 2*chickens + 8*spiders
+##            if totLegs == legs:
+##                print('Number of dogs: ', dogs)
+##                print('Number of chickens: ', chickens)
+##                print('Number of spiders: ', spiders)
+##                solutionFound = True
+##    if not solutionFound: print('There is no solution.')
+##
+##
+##def animals_on_farm2():
+##    heads = int(input('Enter number of heads: '))
+##    legs = int(input('Enter number of legs: '))
+##    # This is modularity - suppressing details of 'solve'
+##    dogs, chickens, spiders = solve2(legs, heads)
+        
+        
     
