@@ -381,41 +381,99 @@
 ##print(_unique_common_elements_sample_ed2_(my_list1, my_list2))
 
 
-# Midterm Exam, Part 9 (GCD)
+### Midterm Exam, Part 9 (GCD)
+##
+##'''Write a function named find_gcd that accepts a list of positive integers
+##and returns their greatest common divisor (GCD). Your function should return
+##1 as the GCD if there are no common factors between the integers. Here are some
+##examples:
+##
+##if the list was
+##
+##
+##[12, 24, 6, 18]
+##
+##then your function should return the GCD:
+##
+##6
+##'''
+##
+##def sample_gcd_list_ed2_(my_list):
+##    result = my_list[0]
+##    print('outer result is', result)
+##    for i in range(1, len(my_list)):
+##        print('result is', result, 'my_list[i]', my_list[i])
+##        result = my_gcd(result, my_list[i])
+##        print('another result is', result)
+##        
+##        
+##    return result
+##    
+##  
+##def my_gcd(a,b):
+##    while b:
+##        print('pre a is', a, 'pre b is', b)
+##        a, b = b, a%b
+##        print('b is', a, 'a mod b is', b)
+##    return a
+##    
+##
+##
+##list = [12, 24, 6, 18]
+##print(sample_gcd_list_ed2_(list))
 
-'''Write a function named find_gcd that accepts a list of positive integers
-and returns their greatest common divisor (GCD). Your function should return
-1 as the GCD if there are no common factors between the integers. Here are some
-examples:
 
-if the list was
+# Midterm Exam, Part 10 (Numbers To Words)
 
+'''Write a program that asks the user to enter an integer between
+1 and 9999 (both inclusive) and then prints the input integer using words.
+For example if the user enters:
 
-[12, 24, 6, 18]
+3421
 
-then your function should return the GCD:
+Then your program should print
 
-6
+three thousand four hundred twenty one
+
 '''
 
-def sample_gcd_list_ed2_(my_list):
-    result = my_list[0]
-    print('outer result is', result)
-    for i in range(1, len(my_list)):
-        result = my_gcd(result, my_list[i])
-        print('result is', result)
-    return result
-    
-  
-def my_gcd(a,b):
-    while b:
-        a, b = b, a%b
-        print('a is', a, 'b is', b)
-    return a
-    
+################### Instructor code ###################
+n=int(input('please enter an integer between 1 and 9999: '))
 
+one_to_ten = ['zero','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 
-list = [12, 24, 6, 18]
-print(sample_gcd_list_ed2_(list))
+ten_to_nineteen = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen',
+                    'sixteen', 'seventeen', 'eighteen', 'nineteen']
+
+twenty_to_ninety = ['','','twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty',
+'ninety']
+
+temp_str=""
+if n==0:
+    temp_str='zero'
+    #print('zero')
+first_digit=n//1000
+second_digit=(n%1000)//100
+third_digit=(n%100)//10
+fourth_digit=(n%10)
+if first_digit>0:
+    temp_str=temp_str+one_to_ten[first_digit]+' thousand '
+    #print (one_to_ten[first_digit],'thousand ',end='')
+if second_digit>0:
+    temp_str=temp_str+one_to_ten[second_digit]+' hundred '
+    #print (one_to_ten[second_digit],'hundred ',end='')
+if third_digit>1:
+    temp_str=temp_str+twenty_to_ninety[third_digit]+" "
+    #print (twenty_to_ninety[third_digit],'',end='')
+if third_digit==1:
+    temp_str=temp_str+ten_to_nineteen[fourth_digit]+" "
+    #print (ten_to_nineteen[fourth_digit],'',end='')
+else:
+    if fourth_digit:
+        temp_str=temp_str+one_to_ten[fourth_digit]+" "
+        #print (one_to_ten[fourth_digit],'',end='')
+if temp_str[-1]==" ":
+    temp_str=temp_str[0:-1]
+print (temp_str)
 
 
