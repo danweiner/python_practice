@@ -212,20 +212,20 @@
 ##print(_my_Swap(my_string))
 
 
-# Strings Functions Exercise 4 (Remove All Spaces)
-
-'''Write a function which accepts an input string consisting of alphabetic
-characters and spaces and returns the string with all the spaces removed.
-Do NOT use any string methods for this problem.
-'''
-
-################### Sample Solution ###################
-def _remove_spaces_sample_(string):
-    out_string = ""
-    for x in range(0, len(string)):
-        if string[x] != " ":
-            out_string = out_string + string[x]
-    return out_string
-
-my_string = 'Hello 15 Dotty'
-print(_remove_spaces_sample_(my_string))
+### Strings Functions Exercise 4 (Remove All Spaces)
+##
+##'''Write a function which accepts an input string consisting of alphabetic
+##characters and spaces and returns the string with all the spaces removed.
+##Do NOT use any string methods for this problem.
+##'''
+##
+##################### Sample Solution ###################
+##def _remove_spaces_sample_(string):
+##    out_string = ""
+##    for x in range(0, len(string)):
+##        if string[x] != " ":
+##            out_string = out_string + string[x]
+##    return out_string
+##
+##my_string = 'Hello 15 Dotty'
+##print(_remove_spaces_sample_(my_string))
