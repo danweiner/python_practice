@@ -1,0 +1,77 @@
+Everything is an object
+
+- Scalar and non-scalar objects
+- Expressions
+- overloaded operators have a meaning that depends upon the type of the operands ( + , -, / )
+
+
+Program = script
+- sequence of commands
+
+Variable is a name for an object
+- assignment statement binds a name to an object
+
+Straight line programs
+- Every command gets executed once
+
+Conditional statements
+- if, else, elif
+
+Programs are intended to be read
+- This is so they can be debugged
+- And so you can see the structure of your program on the screen
+
+Branching programs
+- run time not proportional to lines of code
+
+Straight line programs - run time determined by number of lines of code in the program
+
+Looping construct (iteration)
+- Turing complete
+- more complicated flow of control
+
+
+Example code:
+
+##x = 3 
+##x = x * x
+##print(x)
+
+##y = float(input('Enter a number: '))
+##print(y)
+
+##x = int(input('Enter an integer: '))
+##if x%2== 0:
+##    print('Even')
+##else:
+##    print('Odd')
+##    if x%3 != 0:
+##        print('And not divisible by 3')
+
+
+x = int(input('Enter x: '))
+y = int(input('Enter y: '))
+z = int(input('Enter z: '))
+
+if x < y:
+    if x < z:
+        print('x is least')
+    else:
+        print('z is least')
+else:
+    print('y is least')
+
+if x < y:
+    if x < z:
+        print('x is least')
+    else:
+        print('z is least')
+elif y < z:
+    print('y is least')
+else:
+    print('z is least')
+
+if x < y and x < z:
+    print('x is least')
+elif y < z:
+    print('y is least')
