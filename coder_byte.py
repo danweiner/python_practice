@@ -93,14 +93,132 @@
 ##print(SimpleSymbols("+D+=3=+s+"))
 
 
-def ABCheck(str): 
-    str = str.replace(' ', '')
-    for i in range(0, len(str)):
-        if str[i] == 'a' and str[i+3] == 'b':
-            return 'true'
-    return 'false'
-    # code goes here 
+##def ABCheck(str): 
+##    str = str.replace(' ', '')
+##    for i in range(0, len(str)):
+##        if str[i] == 'a' and str[i+3] == 'b':
+##            return 'true'
+##    return 'false'
+##    # code goes here 
+##    
+### keep this function call here  
+##print(ABCheck("123adzvb"))
+##
+#########Sample Solution######
+##def ABCheck(str): 
+##
+##  # convert the whole string to lowercase letters
+##  str = str.lower()
+##
+##  # loop through the string
+##  for i in range(0, len(str)):
+##    
+##    # check for "a...b" but we can't go out of bounds on the 
+##    # list or an error will be thrown
+##    if (str[i] == 'a' and i+4 < len(str) and str[i+4] == 'b'):
+##      return 'true'
+##
+##    # check for "b...a"
+##    if (str[i] == 'b' and i+4 < len(str) and str[i+4] == 'a'):
+##      return 'true'
+##
+##  # if none of above were encountered
+##  # then return false by default
+##  return 'false'
+##    
+##print ABCheck("Laura sobs")  
+##
+##
+##
+##def Palindrome(str): 
+##    length = len(str)
+##    mid = length//2
+##    if length % 2 == 0:
+##        str_first = str[:mid]
+##        str_second = str[mid:][::-1]
+##        if str_first == str_second:
+##            return 'true'
+##    if length % 2:
+##        str_first = str[:mid]
+##        str_second = str[mid+1:][::-1]
+##        if str_first == str_second:
+##            return 'true'
+##        
+##    return 'false'
+##    
+### keep this function call here  
+##print(Palindrome("nev3ven77"))
+
+##def Palindrome(str): 
+##
+##  # first we'll get rid of spaces and make the characters 
+##  # all lowercase to make it easier to work with
+##  str = "".join(str.split(" ")).lower()
+##
+##
+##  # we wrote this reverse code in a previous solution
+##  rev = ''.join(reversed(str))
+##  print(rev)
+##
+##  # now it's very easy to check if a string is a palindrome
+##  if str == rev:
+##    return "true"
+##  else:
+##    return "false"
+##    
+##print(Palindrome("Never odd or even"))
+
+
+def ArithGeo(arr):
+    
+    # this function will loop through the array
+    # check to see if the difference provided matches
+    # every element pair differenc in the array
+
+    def arrayDiffs(diff, arr, subtract):
+        
+        # loop starting at i = 2 and check if difference is the same
+        for i in range(2, len(arr)):
+
+            # store the temporary difference
+            if subtract:
+                tempDiff = arr[i] - arr[i-1]
+            else:
+                tempDiff = arr[i] / arr[i-1]
+
+            # if the differences do not match return false
+
+            if (tempDiff != diff):
+                return False
+
+            # if we reach the end of the array and all differences matched
+            # return True
+            elif (i == len(arr)-1 and tempDiff == diff):
+                return True
+
+    # store the first difference for a potential arithmetic sequence
+    diffArith = arr[1] - arr[0]
+
+    # store the first difference for a potential geometric sequence
+    diffGeo = arr[1] / arr[0]
+
+    # check the whole array for an arithmetic sequence
+
+    isArithSeq = arrayDiffs(diffArith, arr, True)
+
+    if isArithSeq:
+        return 'Arithmetic'
+
+    # if not an arithmetic sequence, check for geometric sequence
+    else:
+        isGeoSeq = arrayDiffs(diffGeo, arr, False)
+        if isGeoSeq:
+            return 'Geometric'
+        else:
+            return -1
+
+print(ArithGeo([1, 3, 9, 27]))
+        
     
 # keep this function call here  
-print(ABCheck("123adzvb"))
-
+print(ArithGeo([5,10,15,20, 25, 31]))
