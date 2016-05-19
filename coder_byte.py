@@ -169,56 +169,79 @@
 ##print(Palindrome("Never odd or even"))
 
 
-def ArithGeo(arr):
-    
-    # this function will loop through the array
-    # check to see if the difference provided matches
-    # every element pair differenc in the array
+##def ArithGeo(arr):
+##    
+##    # this function will loop through the array
+##    # check to see if the difference provided matches
+##    # every element pair differenc in the array
+##
+##    def arrayDiffs(diff, arr, subtract):
+##        
+##        # loop starting at i = 2 and check if difference is the same
+##        for i in range(2, len(arr)):
+##
+##            # store the temporary difference
+##            if subtract:
+##                tempDiff = arr[i] - arr[i-1]
+##            else:
+##                tempDiff = arr[i] / arr[i-1]
+##
+##            # if the differences do not match return false
+##
+##            if (tempDiff != diff):
+##                return False
+##
+##            # if we reach the end of the array and all differences matched
+##            # return True
+##            elif (i == len(arr)-1 and tempDiff == diff):
+##                return True
+##
+##    # store the first difference for a potential arithmetic sequence
+##    diffArith = arr[1] - arr[0]
+##
+##    # store the first difference for a potential geometric sequence
+##    diffGeo = arr[1] / arr[0]
+##
+##    # check the whole array for an arithmetic sequence
+##
+##    isArithSeq = arrayDiffs(diffArith, arr, True)
+##
+##    if isArithSeq:
+##        return 'Arithmetic'
+##
+##    # if not an arithmetic sequence, check for geometric sequence
+##    else:
+##        isGeoSeq = arrayDiffs(diffGeo, arr, False)
+##        if isGeoSeq:
+##            return 'Geometric'
+##        else:
+##            return -1
+##
+##print(ArithGeo([1, 3, 9, 27]))
+##        
+##    
+### keep this function call here  
+##print(ArithGeo([5,10,15,20, 25, 31]))
 
-    def arrayDiffs(diff, arr, subtract):
-        
-        # loop starting at i = 2 and check if difference is the same
-        for i in range(2, len(arr)):
 
-            # store the temporary difference
-            if subtract:
-                tempDiff = arr[i] - arr[i-1]
-            else:
-                tempDiff = arr[i] / arr[i-1]
+# subset sum problem
 
-            # if the differences do not match return false
+def ArrayAdditionI(arr):
+    arr = sorted(arr)
+    max_num = arr[-1]
+    arr = arr[:-1]
+    return 'true' if subsetsum(max_num, arr) else 'false'
 
-            if (tempDiff != diff):
-                return False
-
-            # if we reach the end of the array and all differences matched
-            # return True
-            elif (i == len(arr)-1 and tempDiff == diff):
-                return True
-
-    # store the first difference for a potential arithmetic sequence
-    diffArith = arr[1] - arr[0]
-
-    # store the first difference for a potential geometric sequence
-    diffGeo = arr[1] / arr[0]
-
-    # check the whole array for an arithmetic sequence
-
-    isArithSeq = arrayDiffs(diffArith, arr, True)
-
-    if isArithSeq:
-        return 'Arithmetic'
-
-    # if not an arithmetic sequence, check for geometric sequence
-    else:
-        isGeoSeq = arrayDiffs(diffGeo, arr, False)
-        if isGeoSeq:
-            return 'Geometric'
-        else:
-            return -1
-
-print(ArithGeo([1, 3, 9, 27]))
-        
+def subsetsum(max_num, arr):
+    if len(arr) == 0:
+        return max_num == 0
+    return subsetsum(max_num, arr[1:]) or subsetsum(max_num - arr[0], arr[1:])
     
 # keep this function call here  
-print(ArithGeo([5,10,15,20, 25, 31]))
+print(ArrayAdditionI([5,7,14,1,2]))
+
+
+
+
+
+
